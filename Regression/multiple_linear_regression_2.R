@@ -60,7 +60,7 @@ test_output = array(test_data[, "price"])
 test_simple_feature_matrix = get_matrix(test_data, "sqft_living")
 test_predictions1 = predict_outcome(test_simple_feature_matrix, simple_weights)
 first_house1 = round(test_predictions1[1])
-cat("Q2: Simple prediction of the first house in the test dataset=", first_house1)
+cat("\nQ2: Simple prediction of the first house in the test dataset=", first_house1)
 
 # RSS for the test dataset using the simple model
 test_RSS1 = sum((test_output - test_predictions1)^2)
@@ -77,11 +77,11 @@ weights = regression_gradient_descent(feature_matrix, output, initial_weights, s
 test_feature_matrix = get_matrix(test_data, features)
 test_predictions2 = predict_outcome(test_feature_matrix, weights)
 first_house2 = round(test_predictions2[1])
-cat("Q3: Second prediction of the first house in the test dataset=", first_house2)
-cat("Q4: Actual=", round(test_data$price[1]),
+cat("\nQ3: Second prediction of the first house in the test dataset=", first_house2)
+cat("\nQ4: Actual=", round(test_data$price[1]),
         "Model1=", first_house1,
         "Model2=", first_house2)
 
 # RSS for the test dataset using the second model
 test_RSS2 = sum((test_output - test_predictions2)^2)
-cat("Q5: RSS1=", test_RSS1, "RSS2=", test_RSS2)
+cat("\nQ5: RSS1=", test_RSS1, "RSS2=", test_RSS2)
